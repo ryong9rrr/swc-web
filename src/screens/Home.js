@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const Main = styled.main`
+const Screen = styled.main`
   background-color: green;
   min-height: 100vh;
 `;
 
 function Home() {
-  return <Main>main</Main>;
+  return <Screen>main화면입니다.</Screen>;
 }
 
 export default Home;
