@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { routes } from "../../routes";
 import LinkBtn from "./LinkBtn";
-import SignIn from "../Modal/SignIn";
-import { useState } from "react";
-import SignUp from "../Modal/SignUp";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -32,12 +30,6 @@ const Column = styled.div`
 `;
 
 function Header({ isLoggedIn }) {
-  //modal
-  const [signUpModal, setSignUpModal] = useState(false);
-  const [signInModal, setSignInModal] = useState(false);
-  const openCloseSignUp = () => setSignUpModal((prev) => !prev);
-  const openCloseSignIn = () => setSignInModal((prev) => !prev);
-
   return (
     <HeaderContainer>
       <Nav>
@@ -52,20 +44,8 @@ function Header({ isLoggedIn }) {
             <span>OOO님 반가워요!</span>
           ) : (
             <>
-              <button onClick={openCloseSignUp}>회원가입</button>
-              <button onClick={openCloseSignIn}>로그인</button>
-              {signUpModal ? (
-                <SignUp
-                  signUpModal={signUpModal}
-                  openCloseSignUp={openCloseSignUp}
-                />
-              ) : null}
-              {signInModal ? (
-                <SignIn
-                  signInModal={signInModal}
-                  openCloseSignIn={openCloseSignIn}
-                />
-              ) : null}
+              <Link to={routes.signUp}>회원가입</Link>
+              <Link to={routes.signIn}>로그인</Link>
             </>
           )}
         </Column>
