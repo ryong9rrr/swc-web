@@ -2,9 +2,13 @@
 
 ## Library
 
-- `react-router-dom` 라이브러리를 이용해서 route를 관리합니다.
+- `react-router-dom` 로 route를 관리합니다.
 
-- `styled-components` 라이브러리를 이용해서 css와 컴포넌트를 생성합니다.
+- `styled-components` 로 css와 컴포넌트를 생성합니다.
+
+- `react-helmet-async` 로 `<title>`을 바꿉니다.
+
+- `react-fortawesome` 로 아이콘을 추가합니다.
 
 ## Update
 
@@ -29,3 +33,11 @@
 - 커스텀 Route `RestrictRoute`를 추가하였습니다. `RestrictRoute`는 주소창을 통해 회원가입, 로그인 페이지로 이동하려 할 때, 로그인상태라면 `Home`화면으로 리다이렉팅을 합니다.
 
 - `App`의 Route에 `Redirect`를 추가하여 주소창에서 잘못된 주소(없는 주소)로 이동하려한다면 Home화면으로 리다이렉팅 시킵니다.
+
+### 210818 (상윤)
+
+- `react-helmet-async`라이브러리를 활용하여 `<title>`을 바꾸는 `HelmetTitle` 컴포넌트를 추가하였습니다.
+
+- `favicon`을 바꾸었습니다.
+
+- `Header` 컴포넌트를 생성하였습니다.

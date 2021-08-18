@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HelmetTitle from "../components/HelmetTitle";
 
 const Screen = styled.main`
   background-color: blue;
@@ -6,7 +7,12 @@ const Screen = styled.main`
 `;
 
 function Project() {
-  return <Screen>프로젝트 화면입니다.</Screen>;
+  return (
+    <>
+      <HelmetTitle title="project" />
+      <Screen>프로젝트 화면입니다.</Screen>
+    </>
+  );
 }
 
 export default Project;

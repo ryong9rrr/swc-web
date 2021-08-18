@@ -1,4 +1,5 @@
 import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -18,35 +19,41 @@ import { GlobalStyles, lightTheme } from "./styles";
 function App() {
   //로그인상태
   const isLoggedIn = false;
+  //로그인한 유저 데이터
   const userData = useUser(isLoggedIn);
 
   return (
     <React.StrictMode>
-      <ThemeProvider theme={lightTheme}>
-        <Router>
-          <GlobalStyles />
-          <Route>
-            <Header isLoggedIn={isLoggedIn} userData={isLoggedIn && userData} />
-          </Route>
-          <Switch>
-            <Route component={Home} path={routes.home} exact />
-            <Route component={Project} path={routes.project} exact />
-            <RestrictRoute
-              component={SignUp}
-              path={routes.signUp}
-              isLoggedIn={isLoggedIn}
-              exact
-            />
-            <RestrictRoute
-              component={SignIn}
-              path={routes.signIn}
-              isLoggedIn={isLoggedIn}
-              exact
-            />
-            <Redirect to={routes.home} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider theme={lightTheme}>
+          <Router>
+            <GlobalStyles />
+            <Route>
+              <Header
+                isLoggedIn={isLoggedIn}
+                userData={isLoggedIn && userData}
+              />
+            </Route>
+            <Switch>
+              <Route component={Home} path={routes.home} exact />
+              <Route component={Project} path={routes.project} exact />
+              <RestrictRoute
+                component={SignUp}
+                path={routes.signUp}
+                isLoggedIn={isLoggedIn}
+                exact
+              />
+              <RestrictRoute
+                component={SignIn}
+                path={routes.signIn}
+                isLoggedIn={isLoggedIn}
+                exact
+              />
+              <Redirect to={routes.home} />
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </HelmetProvider>
     </React.StrictMode>
   );
 }

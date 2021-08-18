@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HelmetTitle from "../components/HelmetTitle";
 
 const Screen = styled.main`
   background-color: green;
@@ -6,7 +7,12 @@ const Screen = styled.main`
 `;
 
 function Home() {
-  return <Screen>main화면입니다.</Screen>;
+  return (
+    <>
+      <HelmetTitle title="Home" />
+      <Screen>main화면입니다.</Screen>
+    </>
+  );
 }
 
 export default Home;
