@@ -5,6 +5,7 @@ export const lightTheme = {
   fontColor: "rgb(38, 38, 38)",
   bgColor: "#fafafa",
   borderColor: "rgb(219, 219, 219)",
+  accent: "#0095f6",
 };
 
 export const GlobalStyles = createGlobalStyle`

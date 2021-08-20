@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import UserBar from "./UserBar";
 import SearchBar from "./SearchBar";
 import symbol from "../../img/symbol.png";
+import { Button } from "../shared";
 
 const HeaderContainer = styled.header`
-  width: 100%;
-  padding: 1rem 10rem;
+  max-width: 100%;
+  padding: 1rem 8rem;
 `;
 
 const Column = styled.div`
@@ -36,21 +37,15 @@ const Logo = styled.img`
 const Signbtns = styled.div`
   display: flex;
   justify-content: flex-end;
-`;
-
-const Btn = styled.span`
-  margin: 5px;
-  margin-left: 10px;
-  padding: 10px;
-  border-radius: 3px;
   a {
     color: inherit;
     text-decoration: none;
   }
-  &:hover {
-    border: 0.5px solid ${(props) => props.theme.borderColor};
-    font-weight: 600;
-  }
+`;
+
+const Btn = styled(Button)`
+  margin: 5px;
+  margin-left: 10px;
 `;
 
 function Header({ isLoggedIn }) {
@@ -70,12 +65,12 @@ function Header({ isLoggedIn }) {
             <UserBar />
           ) : (
             <Signbtns>
-              <Btn>
-                <Link to={routes.signUp}>회원가입</Link>
-              </Btn>
-              <Btn>
-                <Link to={routes.signIn}>로그인</Link>
-              </Btn>
+              <Link to={routes.signUp}>
+                <Btn>회원가입</Btn>
+              </Link>
+              <Link to={routes.signIn}>
+                <Btn>로그인</Btn>
+              </Link>
             </Signbtns>
           )}
         </Column>
@@ -85,28 +80,3 @@ function Header({ isLoggedIn }) {
 }
 
 export default Header;
-
-/*
-
-<HeaderContainer>
-      <Nav>
-        <Column>
-          <Link to={routes.home}>swc</Link>
-        </Column>
-        <Column>
-          <Link to={routes.project}>프로젝트</Link>
-        </Column>
-        <Column>
-          {isLoggedIn ? (
-            <span>OOO님 반가워요!</span>
-          ) : (
-            <>
-              <Link to={routes.signUp}>회원가입</Link>
-              <Link to={routes.signIn}>로그인</Link>
-            </>
-          )}
-        </Column>
-      </Nav>
-    </HeaderContainer>
-
-*/

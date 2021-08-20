@@ -41,3 +41,24 @@
 - `favicon`을 바꾸었습니다.
 
 - `Header` 컴포넌트를 생성하였습니다.
+
+### 210820 (상윤)
+
+- `shared.js`
+
+  1. `Content` : "기술스택"란과 "토이 프로젝트 목록"을 감싸는 공통 컴포넌트입니다.
+  2. `Separator` : "|" 모양의 컴포넌트 사이를 구분하는 구분선입니다.
+  3. `Button`: 회원가입 / 로그인 / "기술스택" / "최신순" / "인기순" 버튼 등 사용성이 많은 공통 컴포넌트입니다.
+  4. `AccentButton` : "글쓰기" 버튼 같이 특별한 버튼에 사용하는 컴포넌트입니다.
+
+- `Home` 컴포넌트 구조(`HelmetTitle은 생략`)
+
+  ```
+  Home +-- Banner(배너이미지)
+       +-- Skills (기술스택란) +-- SkillHeader
+                              +-- SkillBtns
+       +-- Projects (프로젝트 목록) +-- ProjectHeader
+                                   +-- Project --map() -- Card
+  ```
+
+- `Project` 컴포넌트에서 프로젝트 data 목록을 받아와서 map함수로 각 data를 `Card` 컴포넌트로 보냅니다.

@@ -26,8 +26,8 @@ function App() {
     <React.StrictMode>
       <HelmetProvider>
         <ThemeProvider theme={lightTheme}>
+          <GlobalStyles />
           <Router>
-            <GlobalStyles />
             <Route>
               <Header
                 isLoggedIn={isLoggedIn}
