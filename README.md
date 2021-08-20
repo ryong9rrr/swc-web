@@ -2,9 +2,13 @@
 
 ## Library
 
-- `react-router-dom` 라이브러리를 이용해서 route를 관리합니다.
+- `react-router-dom` 로 route를 관리합니다.
 
-- `styled-components` 라이브러리를 이용해서 css와 컴포넌트를 생성합니다.
+- `styled-components` 로 css와 컴포넌트를 생성합니다.
+
+- `react-helmet-async` 로 `<title>`을 바꿉니다.
+
+- `react-fortawesome` 로 아이콘을 추가합니다.
 
 ## Update
 
@@ -17,3 +21,44 @@
 - `Header`에서 로고를 누르면 홈(`/`)으로, 프로젝트를 누르면 프로젝트 링크(`/project/`)로 가는 `routes`파일을 추가하고 구현했습니다.
 
 - 회원가입/로그인 버튼을 모달로 구현했습니다. (더 좋은 로직이 있다면 조언 부탁드려요!)
+
+### 210811 (상윤)
+
+- 회원가입, 로그인 모달창을 삭제하였습니다.
+
+- `react-router-dom`의 `<Link>`를 사용하여 임시로 회원가입, 로그인 페이지로 이동하는 버튼을 만들었습니다.
+
+- "로그인 상태"일 때 접속한 유저의 정보를 리턴하는 커스텀 훅 `useUser`를 만들었습니다. `useUser`는 `Header`로 정보를 보냅니다.
+
+- 커스텀 Route `RestrictRoute`를 추가하였습니다. `RestrictRoute`는 주소창을 통해 회원가입, 로그인 페이지로 이동하려 할 때, 로그인상태라면 `Home`화면으로 리다이렉팅을 합니다.
+
+- `App`의 Route에 `Redirect`를 추가하여 주소창에서 잘못된 주소(없는 주소)로 이동하려한다면 Home화면으로 리다이렉팅 시킵니다.
+
+### 210818 (상윤)
+
+- `react-helmet-async`라이브러리를 활용하여 `<title>`을 바꾸는 `HelmetTitle` 컴포넌트를 추가하였습니다.
+
+- `favicon`을 바꾸었습니다.
+
+- `Header` 컴포넌트를 생성하였습니다.
+
+### 210820 (상윤)
+
+- `shared.js`
+
+  1. `Content` : "기술스택"란과 "토이 프로젝트 목록"을 감싸는 공통 컴포넌트입니다.
+  2. `Separator` : "|" 모양의 컴포넌트 사이를 구분하는 구분선입니다.
+  3. `Button`: 회원가입 / 로그인 / "기술스택" / "최신순" / "인기순" 버튼 등 사용성이 많은 공통 컴포넌트입니다.
+  4. `AccentButton` : "글쓰기" 버튼 같이 특별한 버튼에 사용하는 컴포넌트입니다.
+
+- `Home` 컴포넌트 구조(`HelmetTitle은 생략`)
+
+  ```
+  Home +-- Banner(배너이미지)
+       +-- Skills (기술스택란) +-- SkillHeader
+                              +-- SkillBtns
+       +-- Projects (프로젝트 목록) +-- ProjectHeader
+                                   +-- Project --map() -- Card
+  ```
+
+- `Project` 컴포넌트에서 프로젝트 data 목록을 받아와서 map함수로 각 data를 `Card` 컴포넌트로 보냅니다.

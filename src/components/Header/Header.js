@@ -1,72 +1,77 @@
 import styled from "styled-components";
 import { routes } from "../../routes";
-import LinkBtn from "./LinkBtn";
-import SignIn from "../Modal/SignIn";
-import { useState } from "react";
-import SignUp from "../Modal/SignUp";
+import { Link } from "react-router-dom";
+import UserBar from "./UserBar";
+import SearchBar from "./SearchBar";
+import symbol from "../../img/symbol.png";
+import { Button } from "../shared";
 
 const HeaderContainer = styled.header`
-  display: flex;
-  align-items: center;
-  width: 100%;
-`;
-
-const Nav = styled.nav`
-  width: 100%;
-  display: flex;
+  max-width: 100%;
+  padding: 1rem 8rem;
 `;
 
 const Column = styled.div`
-  width: 33%;
+  width: 100%;
   &:first-child {
-    width: 100%;
+    width: 20%;
   }
   &:nth-child(2) {
-    width: 100%;
+    width: 50%;
   }
   &:last-child {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    width: 30%;
   }
 `;
 
-function Header({ isLoggedIn }) {
-  //modal
-  const [signUpModal, setSignUpModal] = useState(false);
-  const [signInModal, setSignInModal] = useState(false);
-  const openCloseSignUp = () => setSignUpModal((prev) => !prev);
-  const openCloseSignIn = () => setSignInModal((prev) => !prev);
+const Nav = styled.nav`
+  display: flex;
+  width: 100%;
+  align-items: center;
+`;
 
+const Logo = styled.img`
+  max-width: 7rem;
+`;
+
+const Signbtns = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
+const Btn = styled(Button)`
+  margin: 5px;
+  margin-left: 10px;
+`;
+
+function Header({ isLoggedIn }) {
   return (
     <HeaderContainer>
       <Nav>
         <Column>
-          <LinkBtn name="SWC" link={routes.home} />
+          <Link to={routes.home}>
+            <Logo src={symbol} alt="home" />
+          </Link>
         </Column>
         <Column>
-          <LinkBtn name="프로젝트" link={routes.project} />
+          <SearchBar />
         </Column>
         <Column>
           {isLoggedIn ? (
-            <span>OOO님 반가워요!</span>
+            <UserBar />
           ) : (
-            <>
-              <button onClick={openCloseSignUp}>회원가입</button>
-              <button onClick={openCloseSignIn}>로그인</button>
-              {signUpModal ? (
-                <SignUp
-                  signUpModal={signUpModal}
-                  openCloseSignUp={openCloseSignUp}
-                />
-              ) : null}
-              {signInModal ? (
-                <SignIn
-                  signInModal={signInModal}
-                  openCloseSignIn={openCloseSignIn}
-                />
-              ) : null}
-            </>
+            <Signbtns>
+              <Link to={routes.signUp}>
+                <Btn>회원가입</Btn>
+              </Link>
+              <Link to={routes.signIn}>
+                <Btn>로그인</Btn>
+              </Link>
+            </Signbtns>
           )}
         </Column>
       </Nav>
