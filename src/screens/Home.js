@@ -17,7 +17,7 @@ function Home() {
       <main id="main">
         <Banner>베너이미지..</Banner>
         <>
-          <Skills />
+          {/*<Skills />*/}
           <Projects />
         </>
       </main>

@@ -17,7 +17,7 @@
 
 - Inspect 탭에서 CSS 속성을 확인할 수 있습니다
 
-### 디자인 업데이트 내역
+### 디자인 업데이트 내역 (성중)
 
 | 날짜       | 화면     | 내용                                                         |
 | ---------- | -------- | ------------------------------------------------------------ |
@@ -75,3 +75,15 @@
   ```
 
 - `Project` 컴포넌트에서 프로젝트 data 목록을 받아와서 map함수로 각 data를 `Card` 컴포넌트로 보냅니다.
+
+### 210822 (성중)
+- `Skills` 컴포넌트를 주석처리 했습니다
+- 기존 `SkillBtns`를 `Project` 컴포넌트에 구현했습니다
+- 'Btn' 선택에 따라 map함수로 각각의 data를 보내도록 했습니다
+- `react-transition-group` 라이브러리로 `Project`에 'Animation'을 넣었습니다
+```
+npm install react-transition-group
+npm i sass --save-dev
+
+```
+- `animationSwitch`를 `useEffect`로 컴포넌트가 로드될 때 `true` / 버튼을 누를 때 `false`로  바꿔 `Animation`을 구현했습니다
