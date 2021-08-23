@@ -8,6 +8,7 @@ const Container = styled.div`
   align-items: center;
   border: 0.5px solid ${(props) => props.theme.borderColor};
   border-radius: 5px;
+  width: 30%;
 `;
 
 const Icon = styled.span`
@@ -19,6 +20,9 @@ const Search = styled.input`
   all: unset;
   width: 100%;
   height: 2rem;
+  &::placeholder {
+    text-align: center;
+  }
 `;
 
 function SearchBar() {

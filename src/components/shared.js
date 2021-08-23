@@ -26,6 +26,7 @@ export const Button = styled.span`
   }
 `;
 
+//"글쓰기"
 export const AccentButton = styled.button`
   padding: 5px 10px;
   font-size: 1.1rem;
@@ -36,5 +37,17 @@ export const AccentButton = styled.button`
   text-align: center;
   &:hover {
     background-color: gray;
+  }
+`;
+
+export const SkillBtn = styled.button`
+  all: unset;
+  cursor: pointer;
+  border: 2px solid ${(props) => props.theme.borderColor};
+  border-radius: 5px;
+  padding: 5px 10px;
+  &:hover {
+    border-color: ${(props) => props.theme.accent};
+    color: ${(props) => props.theme.accent};
   }
 `;

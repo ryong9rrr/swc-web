@@ -14,15 +14,19 @@ const Title = styled.span`
 `;
 
 const Btns = styled.div`
-  width: 20%;
+  width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const SortBtns = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const WriteBtn = styled(AccentButton)`
+  margin-left: 15px;
 `;
 
 function ProjectHeader() {
@@ -35,7 +39,7 @@ function ProjectHeader() {
           <Separator interval="3px" />
           <Button>인기순</Button>
         </SortBtns>
-        <AccentButton>글쓰기</AccentButton>
+        <WriteBtn>글쓰기</WriteBtn>
       </Btns>
     </Container>
   );

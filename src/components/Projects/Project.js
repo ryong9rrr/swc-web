@@ -1,24 +1,17 @@
 import styled from "styled-components";
+import React from "react";
 import Card from "./Card";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
+import "./Project.scss";
+import { SkillBtn } from "../shared";
 
-import { CSSTransition } from "react-transition-group"
-import './Project.scss'
+const Btns = styled.div`
+  padding: 0px 30px 30px;
+`;
 
-const Btns = styled.div``;
-
-const Btn = styled.button`
-  all: unset;
-  cursor: pointer;
-  border: 2px solid ${(props) => props.theme.borderColor};
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  &:hover {
-    border-color: ${(props) => props.theme.accent};
-    color: ${(props) => props.theme.accent};
-  }
+const Btn = styled(SkillBtn)`
+  margin-right: 15px;
 `;
 
 const Project_Container = styled.div`
@@ -111,15 +104,54 @@ function Project() {
   return (
     <>
       <Btns defaultActiveKey="link-0">
-        <Btn eventKey="link-0" onClick={()=>{ setAnimationSwitch(false); setSkills(0) }}>React</Btn>
-        <Btn eventKey="link-1" onClick={()=>{ setAnimationSwitch(false); setSkills(1) }}>Django</Btn>
-        <Btn eventKey="link-2" onClick={()=>{ setAnimationSwitch(false); setSkills(2) }}>Spring</Btn>
-        <Btn eventKey="link-3" onClick={()=>{ setAnimationSwitch(false); setSkills(3) }}>Vue</Btn>
+        <Btn
+          eventKey="link-0"
+          onClick={() => {
+            setAnimationSwitch(false);
+            setSkills(0);
+          }}
+        >
+          React
+        </Btn>
+        <Btn
+          eventKey="link-1"
+          onClick={() => {
+            setAnimationSwitch(false);
+            setSkills(1);
+          }}
+        >
+          Django
+        </Btn>
+        <Btn
+          eventKey="link-2"
+          onClick={() => {
+            setAnimationSwitch(false);
+            setSkills(2);
+          }}
+        >
+          Spring
+        </Btn>
+        <Btn
+          eventKey="link-3"
+          onClick={() => {
+            setAnimationSwitch(false);
+            setSkills(3);
+          }}
+        >
+          Vue
+        </Btn>
       </Btns>
 
       <CSSTransition in={animationSwitch} classNames="animation" timeout={500}>
         <Project_Container>
-          <SkillContents skills={skills} setAnimationSwitch={setAnimationSwitch} data0={data0} data1={data1} data2={data2} data3={data3}/>
+          <SkillContents
+            skills={skills}
+            setAnimationSwitch={setAnimationSwitch}
+            data0={data0}
+            data1={data1}
+            data2={data2}
+            data3={data3}
+          />
         </Project_Container>
       </CSSTransition>
     </>
@@ -127,7 +159,7 @@ function Project() {
 }
 
 function SkillContents(props) {
-  useEffect( ()=>{
+  useEffect(() => {
     props.setAnimationSwitch(true);
   });
 
@@ -138,7 +170,7 @@ function SkillContents(props) {
           <Card key={card.id} {...card} />
         ))}
       </>
-    )
+    );
   }
   if (props.skills === 1) {
     return (
@@ -147,7 +179,7 @@ function SkillContents(props) {
           <Card key={card.id} {...card} />
         ))}
       </>
-    )
+    );
   }
   if (props.skills === 2) {
     return (
@@ -156,7 +188,7 @@ function SkillContents(props) {
           <Card key={card.id} {...card} />
         ))}
       </>
-    )
+    );
   }
   if (props.skills === 3) {
     return (
@@ -165,7 +197,7 @@ function SkillContents(props) {
           <Card key={card.id} {...card} />
         ))}
       </>
-    )
+    );
   }
 }
 

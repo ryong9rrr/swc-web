@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 import UserBar from "./UserBar";
-import SearchBar from "./SearchBar";
 import symbol from "../../img/symbol.png";
 import { Button } from "../shared";
 
@@ -57,9 +56,7 @@ function Header({ isLoggedIn }) {
             <Logo src={symbol} alt="home" />
           </Link>
         </Column>
-        <Column>
-          <SearchBar />
-        </Column>
+        <Column></Column>
         <Column>
           {isLoggedIn ? (
             <UserBar />

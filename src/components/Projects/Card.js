@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.article`
   margin: 30px auto;
-  width: 300px;
+  max-width: 300px;
   height: 300px;
   border-radius: 20px;
   background-color: gray;
