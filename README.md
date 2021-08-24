@@ -83,14 +83,14 @@
 
 - 기존 `SkillBtns`를 `Project` 컴포넌트에 구현했습니다
 
-- `Btn` 선택에 따라 map함수로 각각의 data를 보내도록 했습니다gi
+- `Btn` 선택에 따라 map함수로 각각의 data를 보내도록 했습니다
 
 - `react-transition-group` 라이브러리로 `Project`에 `Animation`을 넣었습니다
 
- ```
- npm install react-transition-group
- npm i sass --save-dev
- ```
+  ```
+  npm install react-transition-group
+  npm i sass --save-dev
+  ```
 
 - `animationSwitch`를 `useEffect`로 컴포넌트가 로드될 때 `true`, 버튼을 누를 때 `false`로 바꿔 `Animation`을 구현했습니다
 
