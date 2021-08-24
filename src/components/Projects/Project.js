@@ -121,7 +121,7 @@ function Project() {
             setSkills(0);
           }}
         >
-          React
+          All
         </Btn>
         <Btn
           eventKey="link-1"
@@ -130,7 +130,7 @@ function Project() {
             setSkills(1);
           }}
         >
-          Django
+          React
         </Btn>
         <Btn
           eventKey="link-2"
@@ -139,13 +139,22 @@ function Project() {
             setSkills(2);
           }}
         >
-          Spring
+          Django
         </Btn>
         <Btn
           eventKey="link-3"
           onClick={() => {
             setAnimationSwitch(false);
             setSkills(3);
+          }}
+        >
+          Spring
+        </Btn>
+        <Btn
+          eventKey="link-4"
+          onClick={() => {
+            setAnimationSwitch(false);
+            setSkills(4);
           }}
         >
           Vue
@@ -173,7 +182,7 @@ function SkillContents(props) {
   if (props.skills === 0) {
     return (
       <>
-        {props.data.filter(data => data.skill === 'react').map((card) => (
+        {props.data.map((card) => (
             <Card key={card.id} {...card} />
         ))}
       </>
@@ -182,7 +191,7 @@ function SkillContents(props) {
   if (props.skills === 1) {
     return (
       <>
-        {props.data.filter(data => data.skill === 'django').map((card) => (
+        {props.data.filter(data => data.skill === 'react').map((card) => (
             <Card key={card.id} {...card} />
         ))}
       </>
@@ -191,13 +200,22 @@ function SkillContents(props) {
   if (props.skills === 2) {
     return (
       <>
-        {props.data.filter(data => data.skill === 'spring').map((card) => (
+        {props.data.filter(data => data.skill === 'django').map((card) => (
             <Card key={card.id} {...card} />
         ))}
       </>
     );
   }
   if (props.skills === 3) {
+    return (
+      <>
+        {props.data.filter(data => data.skill === 'spring').map((card) => (
+            <Card key={card.id} {...card} />
+        ))}
+      </>
+    );
+  }
+  if (props.skills === 4) {
     return (
       <>
         {props.data.filter(data => data.skill === 'vue').map((card) => (
