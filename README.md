@@ -83,14 +83,14 @@
 
 - 기존 `SkillBtns`를 `Project` 컴포넌트에 구현했습니다
 
-- `Btn` 선택에 따라 map함수로 각각의 data를 보내도록 했습니다
+- `Btn` 선택에 따라 map함수로 각각의 data를 보내도록 했습니다gi
 
-- `react-transition-group` 라이브러리로 `Project`에 'Animation'을 넣었습니다
+- `react-transition-group` 라이브러리로 `Project`에 `Animation`을 넣었습니다
 
-```
-npm install react-transition-group
-npm i sass --save-dev
-```
+ ```
+ npm install react-transition-group
+ npm i sass --save-dev
+ ```
 
 - `animationSwitch`를 `useEffect`로 컴포넌트가 로드될 때 `true`, 버튼을 누를 때 `false`로 바꿔 `Animation`을 구현했습니다
 
@@ -103,3 +103,14 @@ npm i sass --save-dev
 - `SkillBtn`을 `shared.js`폴더에 넣어 효율성을 높였습니다. 이제 만약 다른 컴포넌트에서 재사용한다면, margin만 바꾸면 될 것입니다.
 
 - `ProjectHeader`에서, 사용자의 화면이 (가로방향으로)줄어들 때 "최신순" "인기순"의 글자가 세로로 출력되는 현상을 고치기위해 css수정했습니다.
+
+### 210824 (성중)
+
+- `data` 객체를 하나로 합치고 각 map 함수에 `filter`를 활용해 `skill`이라는 `key`로 데이터를 분류했습니다.
+  - `skill`의 중복 체크에 대한 로직은 더 고민해볼 필요가 있습니다.
+
+- `Card` 컴포넌트가 `skill`도 표시하도록 했습니다.
+
+- css의 `focus` 속성으로 버튼의 활성화 상태를 유지시키도록 했습니다.
+  - 활성화된 상태에서 다른 부분을 클릭하면 풀리는데 이 부분도 고민해볼 필요가 있습니다 ㅎㅎ
+
