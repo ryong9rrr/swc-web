@@ -46,7 +46,11 @@ export const SkillBtn = styled.button`
   border: 2px solid ${(props) => props.theme.borderColor};
   border-radius: 5px;
   padding: 5px 10px;
-  &:hover {
+  &: hover {
+    border-color: ${(props) => props.theme.accent};
+    color: ${(props) => props.theme.accent};
+  }
+  &: focus {
     border-color: ${(props) => props.theme.accent};
     color: ${(props) => props.theme.accent};
   }

@@ -25,76 +25,86 @@ const Project_Container = styled.div`
 //data.map(card => <Card />)
 function Project() {
   //sample data
-  const data0 = [
+  const data = [
     {
       id: 1,
       title: "리액트할사람~",
+      skill: "react",
     },
     {
       id: 2,
       title: "React할사람?",
+      skill: "react",
     },
     {
       id: 3,
       title: "리액트공부 같이해요",
+      skill: "react",
     },
     {
       id: 4,
       title: "리액트 프로젝트 같이해요~",
+      skill: "react",
     },
-  ];
-  const data1 = [
     {
-      id: 1,
+      id: 5,
       title: "장고할사람~",
+      skill: "django",
     },
     {
-      id: 2,
+      id: 6,
       title: "Django할사람?",
+      skill: "django",
     },
     {
-      id: 3,
+      id: 7,
       title: "장고 공부 같이해요",
+      skill: "django",
     },
     {
-      id: 4,
+      id: 8,
       title: "장고 프로젝트 같이해요~",
+      skill: "django",
     },
-  ];
-  const data2 = [
     {
-      id: 1,
+      id: 9,
       title: "스프링할사람~",
+      skill: "spring",
     },
     {
-      id: 2,
+      id: 10,
       title: "Spring할사람?",
+      skill: "spring",
     },
     {
-      id: 3,
+      id: 11,
       title: "스프링 공부 같이해요",
+      skill: "spring",
     },
     {
-      id: 4,
+      id: 12,
       title: "스프링 프로젝트 같이해요~",
+      skill: "spring",
     },
-  ];
-  const data3 = [
     {
-      id: 1,
+      id: 13,
       title: "Vue할사람~",
+      skill: "vue",
     },
     {
-      id: 2,
+      id: 14,
       title: "뷰 할사람~",
+      skill: "vue",
     },
     {
-      id: 3,
+      id: 15,
       title: "뷰 공부 같이해요",
+      skill: "vue",
     },
     {
-      id: 4,
+      id: 16,
       title: "뷰 프로젝트 같이해요~",
+      skill: "vue",
     },
   ];
 
@@ -147,10 +157,7 @@ function Project() {
           <SkillContents
             skills={skills}
             setAnimationSwitch={setAnimationSwitch}
-            data0={data0}
-            data1={data1}
-            data2={data2}
-            data3={data3}
+            data={data}
           />
         </Project_Container>
       </CSSTransition>
@@ -166,8 +173,8 @@ function SkillContents(props) {
   if (props.skills === 0) {
     return (
       <>
-        {props.data0?.map((card) => (
-          <Card key={card.id} {...card} />
+        {props.data.filter(data => data.skill === 'react').map((card) => (
+            <Card key={card.id} {...card} />
         ))}
       </>
     );
@@ -175,8 +182,8 @@ function SkillContents(props) {
   if (props.skills === 1) {
     return (
       <>
-        {props.data1?.map((card) => (
-          <Card key={card.id} {...card} />
+        {props.data.filter(data => data.skill === 'django').map((card) => (
+            <Card key={card.id} {...card} />
         ))}
       </>
     );
@@ -184,8 +191,8 @@ function SkillContents(props) {
   if (props.skills === 2) {
     return (
       <>
-        {props.data2?.map((card) => (
-          <Card key={card.id} {...card} />
+        {props.data.filter(data => data.skill === 'spring').map((card) => (
+            <Card key={card.id} {...card} />
         ))}
       </>
     );
@@ -193,8 +200,8 @@ function SkillContents(props) {
   if (props.skills === 3) {
     return (
       <>
-        {props.data3?.map((card) => (
-          <Card key={card.id} {...card} />
+        {props.data.filter(data => data.skill === 'vue').map((card) => (
+            <Card key={card.id} {...card} />
         ))}
       </>
     );
