@@ -11,7 +11,7 @@ export const Separator = styled.div`
   display: inline-block;
   width: 1px;
   height: ${(props) => props.height || "20px"};
-  background-color: ${(props) => props.theme.borderColor};
+  background-color: ${(props) => props.color || props.theme.borderColor};
   margin: 0px ${(props) => props.interval || "10px"};
 `;
 

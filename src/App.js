@@ -7,6 +7,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import useUser from "./hooks/useUser";
 import { RestrictRoute, routes } from "./routes";
@@ -52,6 +53,7 @@ function App() {
               <Redirect to={routes.home} />
             </Switch>
           </Router>
+          <Footer />
         </ThemeProvider>
       </HelmetProvider>
     </React.StrictMode>
