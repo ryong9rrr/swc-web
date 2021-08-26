@@ -7,13 +7,11 @@ import {
   Switch,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import useUser from "./hooks/useUser";
 import { RestrictRoute, routes } from "./routes";
 import Home from "./screens/Home";
-import Project from "./screens/Project";
-import SignIn from "./screens/SignIn";
+import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import { GlobalStyles, lightTheme } from "./styles";
 
@@ -37,7 +35,6 @@ function App() {
             </Route>
             <Switch>
               <Route component={Home} path={routes.home} exact />
-              <Route component={Project} path={routes.project} exact />
               <RestrictRoute
                 component={SignUp}
                 path={routes.signUp}
@@ -45,15 +42,14 @@ function App() {
                 exact
               />
               <RestrictRoute
-                component={SignIn}
-                path={routes.signIn}
+                component={Login}
+                path={routes.login}
                 isLoggedIn={isLoggedIn}
                 exact
               />
               <Redirect to={routes.home} />
             </Switch>
           </Router>
-          <Footer />
         </ThemeProvider>
       </HelmetProvider>
     </React.StrictMode>

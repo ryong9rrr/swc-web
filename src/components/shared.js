@@ -11,7 +11,7 @@ export const Separator = styled.div`
   display: inline-block;
   width: 1px;
   height: ${(props) => props.height || "20px"};
-  background-color: ${(props) => props.color || props.theme.borderColor};
+  background-color: ${(props) => props.colors || props.theme.borderColor};
   margin: 0px ${(props) => props.interval || "10px"};
 `;
 
@@ -46,12 +46,21 @@ export const SkillBtn = styled.button`
   border: 2px solid ${(props) => props.theme.borderColor};
   border-radius: 5px;
   padding: 5px 10px;
-  &: hover {
+  &:hover {
     border-color: ${(props) => props.theme.accent};
     color: ${(props) => props.theme.accent};
   }
-  &: focus {
+  &:focus {
     border-color: ${(props) => props.theme.accent};
     color: ${(props) => props.theme.accent};
   }
+`;
+
+export const Input = styled.input`
+  box-sizing: border-box;
+  color: black;
+  border: 0.5px solid ${(props) => props.theme.borderColor};
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
 `;

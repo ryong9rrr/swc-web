@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Footer from "../components/Footer/Footer";
 import HelmetTitle from "../components/HelmetTitle";
 import Projects from "../components/Projects/Projects";
 
@@ -17,6 +18,7 @@ function Home() {
         <Banner>베너이미지..</Banner>
         <Projects />
       </main>
+      <Footer />
     </>
   );
 }

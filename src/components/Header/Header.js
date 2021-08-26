@@ -65,7 +65,7 @@ function Header({ isLoggedIn }) {
               <Link to={routes.signUp}>
                 <Btn>회원가입</Btn>
               </Link>
-              <Link to={routes.signIn}>
+              <Link to={routes.login}>
                 <Btn>로그인</Btn>
               </Link>
             </Signbtns>

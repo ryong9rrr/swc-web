@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { Separator } from "../shared";
 
 const Container = styled.footer`
+  position: ${(props) => props.fix && "fixed"};
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,12 +18,12 @@ const Column = styled.div`
   align-items: center;
 `;
 
-function Footer() {
+function Footer({ fix }) {
   return (
-    <Container>
+    <Container fix={fix}>
       <Column>
         <span>About us</span>
-        <Separator color={(props) => props.theme.fontColor} height="16px" />
+        <Separator colors={(props) => props.theme.fontColor} height="16px" />
         <span>오류제보</span>
       </Column>
       <Column>Shall we code &copy;</Column>

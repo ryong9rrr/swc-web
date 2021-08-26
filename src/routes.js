@@ -2,9 +2,8 @@ import { Redirect } from "react-router-dom";
 
 export const routes = {
   home: "/",
-  project: "/project/",
   signUp: "/sign-up",
-  signIn: "/sign-in",
+  login: "/login",
 };
 
 export const RestrictRoute = ({ component: Component, path, isLoggedIn }) => {

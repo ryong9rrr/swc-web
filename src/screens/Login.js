@@ -11,23 +11,21 @@ const SubmitBtn = styled(AccentButton)`
   margin-left: auto;
 `;
 
-function SignUp() {
+function Login() {
   return (
     <>
-      <Layout title="회원가입">
+      <Layout title="로그인">
         <FormBox>
           <form>
             <Input type="text" placeholder="아이디" />
-            <Input type="text" placeholder="닉네임" />
             <Input type="password" placeholder="비밀번호" />
-            <Input type="password" placeholder="비밀번호 확인" />
-            <SubmitBtn type="submit">회원가입</SubmitBtn>
+            <SubmitBtn type="submit">로그인</SubmitBtn>
           </form>
         </FormBox>
         <BottomBox
-          cta="이미 회원이신가요?"
-          link={routes.login}
-          linkText="로그인"
+          cta="계정이 없으신가요?"
+          link={routes.signUp}
+          linkText="회원가입"
         />
       </Layout>
       <Footer fix />
@@ -35,4 +33,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;
