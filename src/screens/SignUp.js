@@ -7,8 +7,18 @@ import { AccentButton, Input } from "../components/shared";
 import { routes } from "../routes";
 
 const SubmitBtn = styled(AccentButton)`
-  margin-top: 20px;
-  margin-left: auto;
+  border:none;
+  border-radius: 30px;
+  margin-top:30px;
+  margin-left:380px;
+  margin-bottom: ${props => props.bottom};
+  background-color: #C4C4C4;
+  color: white;
+  text-align:center;
+  padding: 8px 0px;
+  font-weight: 600;
+  width: 120px;
+  height: 60px;
 `;
 
 function SignUp() {
@@ -21,7 +31,7 @@ function SignUp() {
             <Input type="text" placeholder="닉네임" />
             <Input type="password" placeholder="비밀번호" />
             <Input type="password" placeholder="비밀번호 확인" />
-            <SubmitBtn type="submit">회원가입</SubmitBtn>
+            <SubmitBtn type="submit">회원가입 →</SubmitBtn>
           </form>
         </FormBox>
         <BottomBox

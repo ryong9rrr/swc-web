@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 40px 0px;
-  font-size: 1.5rem;
+  font-size: 18px;
+  font-weight: 500;
+  color: #606060;
+  text-align: center;
+  margin-bottom: 50px;
 `;
 
 function TopBox({ title }) {

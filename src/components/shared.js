@@ -57,10 +57,18 @@ export const SkillBtn = styled.button`
 `;
 
 export const Input = styled.input`
-  box-sizing: border-box;
-  color: black;
+  height: 60px;
+  width: 500px;
+  border-radius: 10px;
+  padding: 0 20px;
+  background-color:#fafafa;
   border: 0.5px solid ${(props) => props.theme.borderColor};
-  width: 100%;
-  padding: 10px 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  box-sizing:border-box;
+  &::placeholder{
+      font-size: 18px;
+  }
+  &:focus{
+      border-color:rgb(38,38,38);
+  }
 `;
