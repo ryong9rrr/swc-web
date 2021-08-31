@@ -9,8 +9,9 @@ const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => props.theme.borderColor};
+  background-color:#F1F1F1;
   padding: 30px;
+  border-radius: 15px 15px 0px 0px;
 `;
 
 const Column = styled.div`

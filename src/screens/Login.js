@@ -29,7 +29,7 @@ function Login() {
           <form>
             <Input type="text" placeholder="아이디" />
             <Input type="password" placeholder="비밀번호" />
-            <SubmitBtn type="submit" bottom='150px'>로그인 →</SubmitBtn>
+            <SubmitBtn type="submit" bottom='250px'>로그인 →</SubmitBtn>
           </form>
         </FormBox>
         <BottomBox

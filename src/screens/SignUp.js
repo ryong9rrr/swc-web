@@ -31,7 +31,7 @@ function SignUp() {
             <Input type="text" placeholder="닉네임" />
             <Input type="password" placeholder="비밀번호" />
             <Input type="password" placeholder="비밀번호 확인" />
-            <SubmitBtn type="submit">회원가입 →</SubmitBtn>
+            <SubmitBtn type="submit" bottom='90px'>회원가입 →</SubmitBtn>
           </form>
         </FormBox>
         <BottomBox
