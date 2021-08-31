@@ -10,8 +10,16 @@ const Container = styled.article`
   font-size: 3rem;
 `;
 
-function Card({ id, title, skill }) {
-  return <Container key={id}>{title}{skill}</Container>;
+function Card({
+  projectId,
+  title,
+  founderId,
+  founderNickName,
+  requiredSkills,
+  recommendedCount,
+  updatedAt,
+}) {
+  return <Container key={projectId}>{title}</Container>;
 }
 
 export default Card;

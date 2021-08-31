@@ -27,25 +27,18 @@ function App() {
         <ThemeProvider theme={lightTheme}>
           <GlobalStyles />
           <Router>
-            <Route>
-              <Header
-                isLoggedIn={isLoggedIn}
-                userData={isLoggedIn && userData}
-              />
-            </Route>
+            <Header isLoggedIn={isLoggedIn} userData={isLoggedIn && userData} />
             <Switch>
-              <Route component={Home} path={routes.home} exact />
+              <Route component={Home} path={routes.home} />
               <RestrictRoute
                 component={SignUp}
                 path={routes.signUp}
                 isLoggedIn={isLoggedIn}
-                exact
               />
               <RestrictRoute
                 component={Login}
                 path={routes.login}
                 isLoggedIn={isLoggedIn}
-                exact
               />
               <Redirect to={routes.home} />
             </Switch>

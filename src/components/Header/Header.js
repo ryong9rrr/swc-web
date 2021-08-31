@@ -3,12 +3,11 @@ import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 import UserBar from "./UserBar";
 import symbol from "../../img/symbol.png";
-import { Button } from "../shared";
 
 const HeaderContainer = styled.header`
   max-width: 100%;
   padding: 1rem 8rem;
-  background-color:#F1F1F1;
+  background-color: #f1f1f1;
   border-radius: 0px 0px 15px 15px;
 `;
 
@@ -53,6 +52,7 @@ const Btn = styled.button`
   &:hover {
     color: #c4c4c4;
   }
+  cursor: pointer;
 `;
 
 function Header({ isLoggedIn }) {
@@ -60,9 +60,9 @@ function Header({ isLoggedIn }) {
     <HeaderContainer>
       <Nav>
         <Column>
-          <Link to={routes.home}>
+          <a href="/">
             <Logo src={symbol} alt="home" />
-          </Link>
+          </a>
         </Column>
         <Column></Column>
         <Column>

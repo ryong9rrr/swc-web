@@ -50,9 +50,8 @@ export const SkillBtn = styled.button`
     border-color: ${(props) => props.theme.accent};
     color: ${(props) => props.theme.accent};
   }
-  &:focus {
-    border-color: ${(props) => props.theme.accent};
-    color: ${(props) => props.theme.accent};
+  a {
+    color: inherit;
   }
 `;
 
@@ -61,14 +60,15 @@ export const Input = styled.input`
   width: 500px;
   border-radius: 10px;
   padding: 0 20px;
-  background-color:#fafafa;
+  background-color: #fafafa;
   border: 0.5px solid ${(props) => props.theme.borderColor};
   margin-bottom: 20px;
-  box-sizing:border-box;
-  &::placeholder{
-      font-size: 18px;
+  box-sizing: border-box;
+  &::placeholder {
+    font-size: 18px;
   }
-  &:focus{
-      border-color:rgb(38,38,38);
+  &:focus {
+    outline: none;
+    border-color: rgb(38, 38, 38);
   }
 `;

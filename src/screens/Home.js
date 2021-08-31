@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Footer from "../components/Footer/Footer";
 import HelmetTitle from "../components/HelmetTitle";
-import Projects from "../components/Projects/Projects";
+import AllProjects from "../components/AllProjects/AllProjects";
 
 const Banner = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ function Home() {
       <HelmetTitle title="Home" />
       <main id="main">
         <Banner>베너이미지..</Banner>
-        <Projects />
+        <AllProjects />
       </main>
       <Footer />
     </>
