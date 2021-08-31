@@ -8,6 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 30px 10px;
   margin-bottom: 15px;
+  margin-top: 10px;
 `;
 
 const AuthBox = styled.section`

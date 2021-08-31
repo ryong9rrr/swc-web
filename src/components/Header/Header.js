@@ -9,6 +9,7 @@ const HeaderContainer = styled.header`
   max-width: 100%;
   padding: 1rem 8rem;
   background-color:#F1F1F1;
+  border-radius: 0px 0px 15px 15px;
 `;
 
 const Column = styled.div`
