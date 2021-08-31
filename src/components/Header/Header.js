@@ -8,6 +8,7 @@ import { Button } from "../shared";
 const HeaderContainer = styled.header`
   max-width: 100%;
   padding: 1rem 8rem;
+  background-color:#F1F1F1;
 `;
 
 const Column = styled.div`
@@ -30,7 +31,7 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.img`
-  max-width: 7rem;
+  max-width: 9rem;
 `;
 
 const Signbtns = styled.div`
@@ -42,9 +43,15 @@ const Signbtns = styled.div`
   }
 `;
 
-const Btn = styled(Button)`
+const Btn = styled.button`
   margin: 5px;
-  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #606060;
+  border: 0px;
+  &:hover {
+    color: #c4c4c4;
+  }
 `;
 
 function Header({ isLoggedIn }) {

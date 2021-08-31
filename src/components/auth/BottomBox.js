@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   margin: 40px 0px;
+  color: #606060;
 `;
 
 const LinkBtn = styled.span`

@@ -7,8 +7,6 @@ const Container = styled.div`
   width: 50%;
   margin: 0 auto;
   padding: 30px 10px;
-  border: 2px solid ${(props) => props.theme.borderColor};
-  border-radius: 10px;
   margin-bottom: 15px;
 `;
 
