@@ -60,9 +60,9 @@ function Header({ isLoggedIn }) {
     <HeaderContainer>
       <Nav>
         <Column>
-          <a href="/">
+          <Link to="/">
             <Logo src={symbol} alt="home" />
-          </a>
+          </Link>
         </Column>
         <Column></Column>
         <Column>

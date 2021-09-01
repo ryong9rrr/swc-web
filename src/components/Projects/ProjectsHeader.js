@@ -29,7 +29,7 @@ const WriteBtn = styled(AccentButton)`
   margin-left: 15px;
 `;
 
-function AllProjectsHeader() {
+function ProjectsHeader() {
   return (
     <Container>
       <Title>Toy Projects</Title>
@@ -45,4 +45,4 @@ function AllProjectsHeader() {
   );
 }
 
-export default AllProjectsHeader;
+export default ProjectsHeader;

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import Footer from "../components/Footer/Footer";
 import HelmetTitle from "../components/HelmetTitle";
-import AllProjects from "../components/AllProjects/AllProjects";
+import SearchBar from "../components/Projects/SearchBar";
+import { Content } from "../components/shared";
+import ProjectsHeader from "../components/Projects/ProjectsHeader";
+import { getSkills } from "../sampleData";
+import SkillBox from "../components/Projects/SkillBox";
 
 const Banner = styled.div`
   width: 100%;
@@ -10,13 +14,27 @@ const Banner = styled.div`
   //img {}
 `;
 
-function Home() {
+const Search = styled(Content)`
+  border: none;
+  display: flex;
+  justify-content: center;
+`;
+
+function Home({ children }) {
+  const { httpStatus: skillsStatus, result: skills } = getSkills;
   return (
     <>
       <HelmetTitle title="Home" />
       <main id="main">
         <Banner>베너이미지..</Banner>
-        <AllProjects />
+        <Content>
+          <ProjectsHeader />
+          <Search>
+            <SearchBar />
+          </Search>
+          <SkillBox data={skillsStatus === "OK" && skills} />
+          {children}
+        </Content>
       </main>
       <Footer />
     </>

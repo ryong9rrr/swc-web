@@ -1,6 +1,6 @@
 import { useParams, useRouteMatch } from "react-router-dom";
 
-function SkillProjects() {
+function ProjectsToSkill() {
   const params = useParams();
   const match = useRouteMatch();
 
@@ -9,4 +9,4 @@ function SkillProjects() {
   return <div>{params.skillName}</div>;
 }
 
-export default SkillProjects;
+export default ProjectsToSkill;

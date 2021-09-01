@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.article`
@@ -19,7 +20,14 @@ function Card({
   recommendedCount,
   updatedAt,
 }) {
-  return <Container key={projectId}>{title}</Container>;
+  return (
+    <Container key={projectId}>
+      {title}
+      <Link to={`/projects/${projectId}`}>
+        <button>자세히보기</button>
+      </Link>
+    </Container>
+  );
 }
 
 export default Card;

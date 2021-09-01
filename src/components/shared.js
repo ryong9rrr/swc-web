@@ -40,21 +40,6 @@ export const AccentButton = styled.button`
   }
 `;
 
-export const SkillBtn = styled.button`
-  all: unset;
-  cursor: pointer;
-  border: 2px solid ${(props) => props.theme.borderColor};
-  border-radius: 5px;
-  padding: 5px 10px;
-  &:hover {
-    border-color: ${(props) => props.theme.accent};
-    color: ${(props) => props.theme.accent};
-  }
-  a {
-    color: inherit;
-  }
-`;
-
 export const Input = styled.input`
   height: 60px;
   width: 500px;
