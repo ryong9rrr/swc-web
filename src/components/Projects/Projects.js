@@ -1,26 +1,30 @@
+import { Route } from "react-router-dom";
 import styled from "styled-components";
-import SearchBar from "../SearchBar";
-import { Content } from "../shared";
-import Project from "./Project";
-import ProjectHeader from "./ProjectHeader";
+import { getAllProjects } from "../../sampleData";
+import Card from "./Card";
+import ProjectsToSkill from "./ProjectsToSkill";
 
-const Search = styled(Content)`
-  border: none;
-  display: flex;
-  justify-content: center;
+const Container = styled.div`
+  margin: 0px 30px 30px;
+  border-top: 1px solid ${(props) => props.theme.borderColor};
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `;
 
 function Projects() {
+  const { httpStatus: projectsStatus, result: projects } = getAllProjects;
+
   return (
-    <>
-      <Search>
-        <SearchBar />
-      </Search>
-      <Content>
-        <ProjectHeader />
-        <Project />
-      </Content>
-    </>
+    <Container>
+      <Route path="/" exact>
+        {projectsStatus === "OK" &&
+          projects.map((card) => <Card key={card.projectId} {...card} />)}
+      </Route>
+      <Route path="/projects/skill/:skillName/" exact>
+        <ProjectsToSkill />
+      </Route>
+    </Container>
   );
 }
 

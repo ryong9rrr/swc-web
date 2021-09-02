@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import HelmetTitle from "../HelmetTitle";
-import BottomBox from "./BottomBox";
 import TopBox from "./Topbox";
 
 const Container = styled.div`

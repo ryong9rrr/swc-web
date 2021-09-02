@@ -1,11 +1,6 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header/Header";
 import useUser from "./hooks/useUser";
@@ -14,6 +9,8 @@ import Home from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import { GlobalStyles, lightTheme } from "./styles";
+import Projects from "./components/Projects/Projects";
+import Project from "./screens/Project";
 
 function App() {
   //로그인상태
@@ -27,14 +24,16 @@ function App() {
         <ThemeProvider theme={lightTheme}>
           <GlobalStyles />
           <Router>
-            <Route>
-              <Header
-                isLoggedIn={isLoggedIn}
-                userData={isLoggedIn && userData}
-              />
-            </Route>
+            <Header isLoggedIn={isLoggedIn} userData={isLoggedIn && userData} />
             <Switch>
-              <Route component={Home} path={routes.home} exact />
+              <Route path="/projects/:projectId/" exact>
+                <Project />
+              </Route>
+              <Route path="/">
+                <Home>
+                  <Projects />
+                </Home>
+              </Route>
               <RestrictRoute
                 component={SignUp}
                 path={routes.signUp}
@@ -47,7 +46,9 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 exact
               />
-              <Redirect to={routes.home} />
+              <Route>
+                <div>Not Found</div>
+              </Route>
             </Switch>
           </Router>
         </ThemeProvider>
