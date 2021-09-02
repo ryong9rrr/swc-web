@@ -13,6 +13,7 @@ const Container = styled.div`
 `;
 
 function Projects() {
+  //getAllProjects 는 "api로 모든 프로젝트를 받아왔다"고 가정
   const { httpStatus: projectsStatus, result: projects } = getAllProjects;
 
   return (

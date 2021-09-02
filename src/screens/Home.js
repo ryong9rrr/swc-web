@@ -21,6 +21,7 @@ const Search = styled(Content)`
 `;
 
 function Home({ children }) {
+  // "api로 모든 스킬목록들을 받아왔다"고 가정
   const { httpStatus: skillsStatus, result: skills } = getSkills;
   return (
     <>

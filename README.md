@@ -1,12 +1,22 @@
 # Shall We Code(swc)
 
-## API
+## 🔥 API fetching 해야할 것들 🔥
 
 일단 `sampleData`를 통해...
 
-- [] DB에 있는 스킬목록 조회하기
-- [] 프로젝트 목록 조회
-- [] 프로젝트 상세 조회
+1. DB에 있는 스킬목록 조회하기
+
+- `Home.js`에서 스킬들을 불러와야함.
+
+2. 프로젝트 목록 조회
+
+- `Projects.js`에서 "모든 프로젝트 불러오기"
+
+3. 프로젝트 상세 조회
+
+- `screens/Project.js`에서 params.projectId를 통해 "프로젝트 상세조회"
+
+---
 
 ## Library
 
@@ -154,3 +164,56 @@
 ### 210831 (성중) - 로그인, 회원가입 화면 UI
 
 - 로그인, 회원가입 UI를 피그마 디자인에 맞춰 일부 수정했습니다.
+
+### 210902 (상윤) - Router 업데이트 사항
+
+저희 api 명세대로 몇가지를 구현했습니다.
+(router 설정때문에 이틀내내 이 작업만 했네요...ㅠㅠ)
+변경내역이 좀 많아서 yong 브런치를 하나 만들어서 작업했습니다!
+성중님께서 확인하시기 전까지 merge는 하지 않을 예정입니다. 꼭 확인해주시면 감사하겠습니다 ㅠㅠ
+변경 및 수정내역은 다음과 같습니다. (좀 많습니다... 죄송합니다... yong 브런치에서 한번 실행해서 직접 확인해주시면 감사하겠습니다!! ㅠㅠ)
+`<App.js>`
+
+1. route 관련
+
+- router 최상단에 project 상세페이지로 가는 route가 위치합니다. (exact)
+- 그 아래에는 Home화면으로 가는 route path="/"가 위치하는데 (exact 아님) projects를 담고 있습니다. projects 관련 수정사항은 아래에서 다시 말씀드리겠습니다.
+  `<Home.js 와 Projects>`
+  기존에 Home은 `<Banner>`와 `<Projects>`만을 자식 컴포넌트로 가졌습니다. 그리고 `<Projects>`에서 대부분의 역할이 수행되었습니다.
+  (수정 전 Home.js)
+
+```js
+function Home() {
+  return (
+    <>
+      <HelmetTitle title="Home" />
+      <main id="main">
+        <Banner>베너이미지..</Banner>
+        <Projects />
+      </main>
+      <Footer />
+    </>
+  );
+}
+```
+
+따라서 Home.js 자체가 가지는 영향력이 너무 작아서 `<Projects>`에 굉장히 종속적이었습니다. 이 부분을 수정한 이유는 "기술 버튼을 클릭할 때마다 url이 바뀌어야 하기 때문(api명세)"입니다.
+그래서 Projects를 분리했습니다. `<Home.js>`는 `<Banner>` 뿐 아니라 `<ProjectsHeader>`, `<SearchBar>`, `<SkillBox>`를 가지고 있습니다.
+그리고 App.js에서 `<Projects>`를 자식요소로 가집니다. (Projects는 이제 오직 `<Card>`만을 리턴합니다.)
+`<Projects>`
+
+1. Route
+   Projects/Projects.js 에 Route를 exact로 두개를 구현했습니다. 하나는 전체 프로젝트를 담당하고, 다른 하나는 기술스택에 따른 프로젝트들을 반환합니다.
+   일단 임시로 `<ProjectsToSkill.js>`를 넣어놨습니다.
+2. `<SkillBox.js>`
+   기술스택들을 가져오는 api를 이용하여 버튼들을 return 합니다. 이 버튼들은 react-router-dom의 `<NavLink>`인데,
+   `<NavLink>`의 특성은 url와 `<NavLink>`의 링크가 일치하면 해당 버튼에 "active"라는 클래스가 자동으로 생깁니다.
+   이것을 이용해서 성중님께서 구현하신 css기능을 구현할 수 있습니다.
+3. `<ProjectsToSkill.js>`
+   임시파일
+4. SearchBar는 하다보니 베너 아래에서 ProjectsHeader 아래로 옮겨졌는데... 왠지 괜찮아 보이는 것 같아서 그냥 뒀습니다....ㅎㅎ,,,
+
+---
+
+`<screens/Project.js>`
+App프로젝트의 상세화면을 나타내는 화면입니다. `<Card>`에 임시로 버튼을 생성해놓았는데, 클릭하면 상세페이지로 이동합니다.

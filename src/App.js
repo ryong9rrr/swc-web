@@ -26,14 +26,6 @@ function App() {
           <Router>
             <Header isLoggedIn={isLoggedIn} userData={isLoggedIn && userData} />
             <Switch>
-              <Route path="/projects/:projectId/" exact>
-                <Project />
-              </Route>
-              <Route path="/">
-                <Home>
-                  <Projects />
-                </Home>
-              </Route>
               <RestrictRoute
                 component={SignUp}
                 path={routes.signUp}
@@ -46,6 +38,14 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 exact
               />
+              <Route path="/projects/:projectId/" exact>
+                <Project />
+              </Route>
+              <Route path="/">
+                <Home>
+                  <Projects />
+                </Home>
+              </Route>
               <Route>
                 <div>Not Found</div>
               </Route>
