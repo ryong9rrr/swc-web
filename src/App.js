@@ -11,6 +11,7 @@ import SignUp from "./screens/SignUp";
 import { GlobalStyles, lightTheme } from "./styles";
 import Projects from "./components/Projects/Projects";
 import Project from "./screens/Project";
+import Profile from "./screens/Profile";
 
 function App() {
   //로그인상태
@@ -38,11 +39,14 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 exact
               />
+              <Route path="/user/:userId/" exact>
+                <Profile />
+              </Route>
               <Route path="/projects/:projectId/" exact>
-                <Project />
+                <Project isLoggedIn={isLoggedIn} />
               </Route>
               <Route path="/">
-                <Home>
+                <Home isLoggedIn={isLoggedIn}>
                   <Projects />
                 </Home>
               </Route>

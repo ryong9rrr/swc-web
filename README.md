@@ -16,6 +16,8 @@
 
 - `screens/Project.js`에서 params.projectId를 통해 "프로젝트 상세조회"
 
+4. 유저 정보 불러오기(Profile로 갔을 때)
+
 ---
 
 ## Library
@@ -217,3 +219,23 @@ function Home() {
 
 `<screens/Project.js>`
 App프로젝트의 상세화면을 나타내는 화면입니다. `<Card>`에 임시로 버튼을 생성해놓았는데, 클릭하면 상세페이지로 이동합니다.
+
+### 210903 (상윤) - ProjectDetail(프로젝트 상세) 추가 완료
+
+#### 변경사항
+
+- 로그인창, 회원가입 창의 submit 버튼을 `shared.js`에서 `RoundButton`이란 이름으로 통합하였습니다. 프로젝트상세화면 등 쓰일 곳이 많기 때문입니다. 따라서 `Home`에서 "글쓰기"버튼은 `SquareButton`이란 이름으로 만들었습니다.
+
+#### 업데이트 사항
+
+프로젝트 상세화면(`screens/Project.js`)을 추가했습니다. 관련 컴포넌트들은 `ProjectDetail 폴더`에 있습니다.
+
+- 백엔드 API에서 유저이미지(avatar)가 정의되지 않았습니다. 우선 `public > img > noneUser.png`를 삽입 해 놓았는데, 추후 백엔드에서 유저이미지가 업데이트 되었을때 이미지를 설정하지 않은 유저들(default로)은 `noneUser.png`를 적용됩니다.
+
+- 프로젝트 상세화면의 `SideBar`에서 마우스를 유저 이미지에 올려놓으면 유저의 이름이 보입니다.
+
+#### 이후 고려할 사항
+
+- `Home`에서의 글쓰기, `Project`에서 프로젝트 참여하기는 로그인상태가 아니라면 modal 식으로 로그인or회원가입을 유도 할 예정입니다.
+
+- `CommentBox` API

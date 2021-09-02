@@ -7,6 +7,14 @@ export const Content = styled.section`
   border-radius: 10px;
 `;
 
+export const Box = styled.article`
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  padding: 30px;
+  border: 2px solid #c4c4c4;
+`;
+
 export const Separator = styled.div`
   display: inline-block;
   width: 1px;
@@ -26,8 +34,7 @@ export const Button = styled.span`
   }
 `;
 
-//"글쓰기"
-export const AccentButton = styled.button`
+export const SquareButton = styled.button`
   padding: 5px 10px;
   font-size: 1.1rem;
   border: 0.5px solid ${(props) => props.theme.borderColor};
@@ -35,6 +42,24 @@ export const AccentButton = styled.button`
   border-radius: 5px;
   font-weight: 600;
   text-align: center;
+  &:hover {
+    background-color: gray;
+  }
+`;
+
+export const RoundButton = styled.button`
+  border: none;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 1.1rem;
+  background-color: #c4c4c4;
+  color: white;
+  text-align: center;
+  padding: 8px 0px;
+  font-weight: 600;
+  width: 120px;
+  height: 60px;
+  cursor: pointer;
   &:hover {
     background-color: gray;
   }

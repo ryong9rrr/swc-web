@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AccentButton, Button, Separator } from "../shared";
+import { Button, Separator, SquareButton } from "../shared";
 
 const Container = styled.div`
   padding: 30px;
@@ -25,7 +25,7 @@ const SortBtns = styled.div`
   align-items: center;
 `;
 
-const WriteBtn = styled(AccentButton)`
+const WriteBtn = styled(SquareButton)`
   margin-left: 15px;
 `;
 
