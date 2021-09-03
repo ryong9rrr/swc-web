@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TextToArray } from "../../utills";
-import { Box, RoundButton } from "../shared";
+import { Box, RoundButton, Skill } from "../shared";
 
 const Container = styled(Box)`
   margin-bottom: 30px;
@@ -18,16 +18,6 @@ const Container = styled(Box)`
     display: block;
     margin-left: auto;
   }
-`;
-
-const Skill = styled.span`
-  color: ${(props) => props.theme.accent};
-  box-sizing: border-box;
-  display: inline;
-  margin-right: 15px;
-  padding: 5px 10px;
-  border: 2px solid ${(props) => props.theme.accent};
-  border-radius: 5px;
 `;
 
 function ProjectBox({ projectTitle, requiredSkills, projectContent }) {

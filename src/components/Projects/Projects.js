@@ -14,13 +14,15 @@ const Container = styled.div`
 
 function Projects() {
   //getAllProjects 는 "api로 모든 프로젝트를 받아왔다"고 가정
-  const { httpStatus: projectsStatus, result: projects } = getAllProjects;
+  const { httpStatus, result: projects } = getAllProjects;
 
   return (
     <Container>
       <Route path="/" exact>
-        {projectsStatus === "OK" &&
-          projects.map((card) => <Card key={card.projectId} {...card} />)}
+        {httpStatus === "OK" &&
+          projects.map((project) => (
+            <Card key={project.projectId} size="300px" {...project} />
+          ))}
       </Route>
       <Route path="/projects/skill/:skillName/" exact>
         <ProjectsToSkill />

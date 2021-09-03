@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.article`
   margin: 30px auto;
-  max-width: 300px;
-  height: 300px;
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   border-radius: 20px;
   background-color: gray;
   color: white;
@@ -12,6 +12,7 @@ const Container = styled.article`
 `;
 
 function Card({
+  size,
   projectId,
   title,
   founderId,
@@ -21,7 +22,7 @@ function Card({
   updatedAt,
 }) {
   return (
-    <Container key={projectId}>
+    <Container key={projectId} size={size}>
       {title}
       <Link to={`/projects/${projectId}`}>
         <button>자세히보기</button>

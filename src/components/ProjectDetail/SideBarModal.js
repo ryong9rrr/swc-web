@@ -1,33 +1,36 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import SideBarModal from "./Modal/SideBarModal";
+import { Avatar } from "../shared";
 
 const Container = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const AvatarImg = styled.div`
+//props : size, url
+const AvatarImg = styled(Avatar)`
   margin: 0 auto;
   display: block;
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
-  border-radius: 50%;
-  min-height: 100%;
-  background: ${(props) =>
-      props.url ? `url("${props.url}")` : `url("/img/noneUser.png")`}
-    bottom center;
-  background-size: cover;
-  cursor: pointer;
   &:hover {
     opacity: 0.8;
   }
 `;
 
+const HoverModal = styled.div`
+  border: 2px solid gray;
+  border-radius: 0px 10px 10px;
+  background-color: white;
+  padding: 5px;
+  position: absolute;
+  right: -10px;
+  bottom: -5px;
+  font-size: 12px;
+`;
+
 //hover시 간략한 유저정보가 뜨도록 할 예정(?)
 //클릭하면 유저프로필?
-function Avatar({ url, size, founderId, userId, username }) {
+function SideBarModal({ url, size, founderId, userId, username }) {
   const [modal, setModal] = useState(false);
 
   return (
@@ -41,14 +44,15 @@ function Avatar({ url, size, founderId, userId, username }) {
         />
       </Link>
       {modal && (
-        <SideBarModal
-          founderId={founderId}
-          userId={userId}
-          username={username}
-        />
+        <HoverModal>
+          <span>
+            {username}
+            {founderId === userId && "(게시자)"}
+          </span>
+        </HoverModal>
       )}
     </Container>
   );
 }
 
-export default Avatar;
+export default SideBarModal;

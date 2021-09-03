@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lightTheme } from "../styles";
 
 export const Content = styled.section`
   max-width: 100%;
@@ -81,4 +82,29 @@ export const Input = styled.input`
     outline: none;
     border-color: rgb(38, 38, 38);
   }
+`;
+
+export const Avatar = styled.div`
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
+  border-radius: 50%;
+  min-height: 100%;
+  background: ${(props) =>
+      props.url ? `url("${props.url}")` : `url("/img/noneUser.png")`}
+    bottom center;
+  background-size: cover;
+  cursor: pointer;
+`;
+
+export const Skill = styled.span`
+  color: ${(props) => props.theme.accent};
+  box-sizing: border-box;
+  display: inline;
+  margin-right: 15px;
+  padding: 5px 10px;
+  border: 2px solid ${(props) => props.theme.accent};
+  border-radius: 5px;
+  background-color: ${(props) =>
+    props.theme === lightTheme ? "white" : "black"};
+  font-weight: 600;
 `;

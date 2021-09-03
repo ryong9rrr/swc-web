@@ -239,3 +239,11 @@ App프로젝트의 상세화면을 나타내는 화면입니다. `<Card>`에 임
 - `Home`에서의 글쓰기, `Project`에서 프로젝트 참여하기는 로그인상태가 아니라면 modal 식으로 로그인or회원가입을 유도 할 예정입니다.
 
 - `CommentBox` API
+
+### 210904 (상윤) - Profile
+
+- `Avatar`는 다른 용도(프로필화면 등)로도 쓰일 곳이 많기 때문에 `shared.js`에 스타일컴포넌트로 교체, 따라서 `Avatar`와 `SideBarModal`을 통합.
+
+Profile 화면 작업중...
+
+- `Projects/Card.js`는 `Profile`화면에서 사이즈가 달라지기 때문에 약간의 수정, 추후 props 이름을 바꿔주어야 할듯(API 명세가 약간씩 다르기 때문에)

@@ -12,12 +12,12 @@ const Main = styled(Content)`
 `;
 
 const LeftBox = styled.div`
-  width: 90%;
+  width: 85%;
   padding-right: 30px;
 `;
 
 const RightBox = styled.div`
-  width: 10%;
+  width: 15%;
 `;
 
 function Project() {

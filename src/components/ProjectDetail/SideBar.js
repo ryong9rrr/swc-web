@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Avatar from "../Avatar";
+import SideBarModal from "./SideBarModal";
 
 const Container = styled.article`
-  padding: 30px 0px;
+  width: 100%;
+  padding: 30px;
   border-radius: 10px;
   background-color: #c4c4c4;
   display: flex;
@@ -35,7 +36,7 @@ function SideBar({ founderId, founderEmail, founderNickname, participants }) {
     <Container>
       <Finder>
         <h1>게시자</h1>
-        <Avatar
+        <SideBarModal
           userId={founderId}
           username={founderNickname}
           userEmail={founderEmail}
@@ -45,7 +46,7 @@ function SideBar({ founderId, founderEmail, founderNickname, participants }) {
         <h1>참여자</h1>
         {participants.map((user, index) => (
           <React.StrictMode key={index}>
-            <Avatar
+            <SideBarModal
               founderId={founderId}
               userId={user.userId}
               username={user.nickname}
