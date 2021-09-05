@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button, Separator, SquareButton } from "../shared";
 
@@ -27,9 +28,12 @@ const SortBtns = styled.div`
 
 const WriteBtn = styled(SquareButton)`
   margin-left: 15px;
+  a {
+    color: inherit;
+  }
 `;
 
-function ProjectsHeader() {
+function ProjectsHeader({ isLoggedIn }) {
   return (
     <Container>
       <Title>Toy Projects</Title>
@@ -39,7 +43,13 @@ function ProjectsHeader() {
           <Separator interval="3px" />
           <Button>인기순</Button>
         </SortBtns>
-        <WriteBtn>글쓰기</WriteBtn>
+        <WriteBtn disabled={!isLoggedIn}>
+          {isLoggedIn ? (
+            <Link to="/projects/new-project/">글쓰기</Link>
+          ) : (
+            "글쓰기"
+          )}
+        </WriteBtn>
       </Btns>
     </Container>
   );

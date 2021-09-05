@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer/Footer";
+import HelmetTitle from "../components/HelmetTitle";
 import CommentBox from "../components/ProjectDetail/CommentBox";
 import ProjectBox from "../components/ProjectDetail/ProjectBox";
 import SideBar from "../components/ProjectDetail/SideBar";
@@ -61,6 +62,7 @@ function Project() {
 
   return (
     <>
+      <HelmetTitle title="프로젝트 상세" />
       <Main>
         <LeftBox>
           <ProjectBox

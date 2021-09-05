@@ -39,12 +39,12 @@ export const SquareButton = styled.button`
   padding: 5px 10px;
   font-size: 1.1rem;
   border: 0.5px solid ${(props) => props.theme.borderColor};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
   border-radius: 5px;
   font-weight: 600;
   text-align: center;
   &:hover {
-    background-color: gray;
+    background-color: ${(props) => (props.disabled ? "inherit" : "gray")};
   }
 `;
 

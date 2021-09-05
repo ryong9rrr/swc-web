@@ -1,6 +1,11 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header/Header";
 import useUser from "./hooks/useUser";
@@ -12,10 +17,11 @@ import { GlobalStyles, lightTheme } from "./styles";
 import Projects from "./components/Projects/Projects";
 import Project from "./screens/Project";
 import Profile from "./screens/Profile";
+import NewProject from "./screens/NewProject";
 
 function App() {
   //로그인상태
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   //로그인한 유저 데이터
   const userData = useUser(isLoggedIn);
 
@@ -41,6 +47,13 @@ function App() {
               />
               <Route path="/user/:userId/" exact>
                 <Profile />
+              </Route>
+              <Route path="/projects/new-project/" exact>
+                {isLoggedIn ? (
+                  <NewProject isLoggedIn={isLoggedIn} userData={userData} />
+                ) : (
+                  <Redirect to="/" />
+                )}
               </Route>
               <Route path="/projects/:projectId/" exact>
                 <Project isLoggedIn={isLoggedIn} />

@@ -247,3 +247,11 @@ App프로젝트의 상세화면을 나타내는 화면입니다. `<Card>`에 임
 Profile 화면 작업중...
 
 - `Projects/Card.js`는 `Profile`화면에서 사이즈가 달라지기 때문에 약간의 수정, 추후 props 이름을 바꿔주어야 할듯(API 명세가 약간씩 다르기 때문에)
+
+### 210906 (상윤) - create project(NewProject)
+
+- 새로운 글을 작성할 때, 스킬을 추가하는 작업을 쉽게 하기위해 `react-select` 라이브러리 추가.
+
+  - 📌 `npm i --save react-select`
+
+- `NewProject` 스크린 추가.

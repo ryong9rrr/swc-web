@@ -20,7 +20,7 @@ const Search = styled(Content)`
   justify-content: center;
 `;
 
-function Home({ children }) {
+function Home({ children, isLoggedIn }) {
   // "api로 모든 스킬목록들을 받아왔다"고 가정
   const { httpStatus: skillsStatus, result: skills } = getSkills;
   return (
@@ -29,7 +29,7 @@ function Home({ children }) {
       <main id="main">
         <Banner>베너이미지..</Banner>
         <Content>
-          <ProjectsHeader />
+          <ProjectsHeader isLoggedIn={isLoggedIn} />
           <Search>
             <SearchBar />
           </Search>

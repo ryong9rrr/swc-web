@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer/Footer";
+import HelmetTitle from "../components/HelmetTitle";
 import ProjectBox from "../components/Profile/ProjectBox";
 import UserBox from "../components/Profile/UserBox";
-import { Box, Content, Skill } from "../components/shared";
+import { Content } from "../components/shared";
 
 const Main = styled(Content)`
   border: none;
@@ -50,6 +51,7 @@ function Profile() {
 
   return (
     <>
+      <HelmetTitle title={data?.nickname} />
       <Main>
         <UserBox nickname={data?.nickname} skills={data?.skills} />
         <ProjectBox projects={data?.joinedProjects} />
