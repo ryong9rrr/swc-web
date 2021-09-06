@@ -21,7 +21,7 @@ import NewProject from "./screens/NewProject";
 
 function App() {
   //로그인상태
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   //로그인한 유저 데이터
   const userData = useUser(isLoggedIn);
 

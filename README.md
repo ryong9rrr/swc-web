@@ -30,6 +30,10 @@
 
 - `react-fortawesome` 로 아이콘을 추가합니다.
 
+- `react-select`로 글을 작성할 때 스킬을 추가합니다.
+
+- `axios`로 데이터를 fetching 합니다.
+
 ## Prototype
 
 | 리소스          | 링크                                                                                   |
@@ -255,3 +259,5 @@ Profile 화면 작업중...
   - 📌 `npm i --save react-select`
 
 - `NewProject` 스크린 추가.
+
+- data fetching 📌 `npm i --save axios`
