@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import {
   BrowserRouter as Router,
@@ -21,7 +21,9 @@ import NewProject from "./screens/NewProject";
 
 function App() {
   //로그인상태
-  const isLoggedIn = false;
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  //임시
+  const logout = () => setIsLoggedIn(false);
   //로그인한 유저 데이터
   const userData = useUser(isLoggedIn);
 
@@ -31,7 +33,11 @@ function App() {
         <ThemeProvider theme={lightTheme}>
           <GlobalStyles />
           <Router>
-            <Header isLoggedIn={isLoggedIn} userData={isLoggedIn && userData} />
+            <Header
+              isLoggedIn={isLoggedIn}
+              userData={isLoggedIn && userData}
+              logout={logout}
+            />
             <Switch>
               <RestrictRoute
                 component={SignUp}
@@ -45,20 +51,20 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 exact
               />
-              <Route path="/user/:userId/" exact>
-                <Profile />
-              </Route>
-              <Route path="/projects/new-project/" exact>
+              <Route path={routes.newProject} exact>
                 {isLoggedIn ? (
                   <NewProject isLoggedIn={isLoggedIn} userData={userData} />
                 ) : (
-                  <Redirect to="/" />
+                  <Redirect to={routes.home} />
                 )}
               </Route>
-              <Route path="/projects/:projectId/" exact>
+              <Route path={`${routes.user}/:userId`} exact>
+                <Profile />
+              </Route>
+              <Route path={`${routes.projects}/:projectId`} exact>
                 <Project isLoggedIn={isLoggedIn} />
               </Route>
-              <Route path="/">
+              <Route path={routes.home}>
                 <Home isLoggedIn={isLoggedIn}>
                   <Projects />
                 </Home>

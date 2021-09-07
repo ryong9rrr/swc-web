@@ -4,6 +4,10 @@ export const routes = {
   home: "/",
   signUp: "/sign-up",
   login: "/login",
+  skill: "/skill",
+  projects: "/projects",
+  newProject: "/new-project",
+  user: "/user",
 };
 
 export const RestrictRoute = ({ component: Component, path, isLoggedIn }) => {

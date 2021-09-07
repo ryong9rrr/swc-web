@@ -1,6 +1,7 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
-import { getAllProjects } from "../../sampleData";
+import useAxios from "../../hooks/useAxios";
+import { routes } from "../../routes";
 import Card from "./Card";
 import ProjectsToSkill from "./ProjectsToSkill";
 
@@ -13,20 +14,39 @@ const Container = styled.div`
 `;
 
 function Projects() {
-  //getAllProjects 는 "api로 모든 프로젝트를 받아왔다"고 가정
-  const { httpStatus, result: projects } = getAllProjects;
+  const { loading, data, error } = useAxios("projects");
+
+  if (error) {
+    return <div>Not Found</div>;
+  }
+
+  if (!data || loading) {
+    return <div>loading..</div>;
+  }
+
+  const { httpStatus, result: projects } = data;
 
   return (
     <Container>
-      <Route path="/" exact>
+      <Route path={routes.home} exact>
         {httpStatus === "OK" &&
           projects.map((project) => (
-            <Card key={project.projectId} size="300px" {...project} />
+            <Card
+              key={project.projectId}
+              size="300px"
+              projectId={project.projectId}
+              userId={project.founderId}
+              title={project.title}
+              username={project.founderNickName}
+              skills={project.requiredSkills}
+              likes={project.recommendedCount}
+            />
           ))}
       </Route>
-      <Route path="/projects/skill/:skillName/" exact>
+      <Route path={`${routes.skill}/:skillName/`} exact>
         <ProjectsToSkill />
       </Route>
+      <Redirect to={routes.home} />
     </Container>
   );
 }

@@ -2,59 +2,35 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer/Footer";
 import HelmetTitle from "../components/HelmetTitle";
-import ProjectBox from "../components/Profile/ProjectBox";
+import ProfileProjectBox from "../components/Profile/ProfileProjectBox";
 import UserBox from "../components/Profile/UserBox";
 import { Content } from "../components/shared";
+import useAxios from "../hooks/useAxios";
 
 const Main = styled(Content)`
   border: none;
 `;
 
 function Profile() {
-  //userId를 이용해서 유저정보를 불러오는 API 호출
   const { userId } = useParams();
-  const userData = {
-    httpStatus: "OK",
-    result: {
-      userId: 1,
-      email: "123@123",
-      nickname: "용상윤",
-      phoneNumber: "010-@@@@-####",
-      skills: "react javascript",
-      createdAt: "2021-09-01T16:15:51.758",
-      updatedAt: "2021-09-01T16:15:51.758",
-      joinedProjects: [
-        {
-          joinUserId: 1,
-          joinProjectId: 1,
-          updatedAt: "2021-09-01T16:17:30.31",
-        },
-        {
-          joinUserId: 1,
-          joinProjectId: 3,
-          updatedAt: "2021-09-01T16:19:21.334",
-        },
-        {
-          joinUserId: 1,
-          joinProjectId: 2,
-          updatedAt: "2021-09-01T16:19:28.875",
-        },
-      ],
-    },
-  };
+  const { loading, data, error } = useAxios(`user/${userId}`);
 
-  const { httpStatus, result: data } = userData;
-
-  if (httpStatus !== "OK") {
-    return;
+  if (error) {
+    return <div>Not Found</div>;
   }
+
+  if (!data || loading) {
+    return <div>loading..</div>;
+  }
+
+  const { result } = data;
 
   return (
     <>
-      <HelmetTitle title={data?.nickname} />
+      <HelmetTitle title={result?.nickname} />
       <Main>
-        <UserBox nickname={data?.nickname} skills={data?.skills} />
-        <ProjectBox projects={data?.joinedProjects} />
+        <UserBox nickname={result?.nickname} skills={result?.skills} />
+        <ProfileProjectBox projects={result?.joinedProjects} />
       </Main>
       <Footer />
     </>

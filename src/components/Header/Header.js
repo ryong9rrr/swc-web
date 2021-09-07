@@ -55,7 +55,7 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
-function Header({ isLoggedIn }) {
+function Header({ isLoggedIn, userData, logout }) {
   return (
     <HeaderContainer>
       <Nav>
@@ -67,7 +67,7 @@ function Header({ isLoggedIn }) {
         <Column></Column>
         <Column>
           {isLoggedIn ? (
-            <UserBar />
+            <UserBar userData={userData} logout={logout} />
           ) : (
             <Signbtns>
               <Link to={routes.signUp}>

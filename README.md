@@ -6,17 +6,17 @@
 
 1. DB에 있는 스킬목록 조회하기
 
-- `Home.js`에서 스킬들을 불러와야함.
+- [✔] `Home.js`에서 스킬들을 불러와야함.
 
 2. 프로젝트 목록 조회
 
-- `Projects.js`에서 "모든 프로젝트 불러오기"
+- [✔] `Projects.js`에서 "모든 프로젝트 불러오기"
 
 3. 프로젝트 상세 조회
 
-- `screens/Project.js`에서 params.projectId를 통해 "프로젝트 상세조회"
+- [✔] `screens/Project.js`에서 params.projectId를 통해 "프로젝트 상세조회"
 
-4. 유저 정보 불러오기(Profile로 갔을 때)
+4. [✔] 유저 정보 불러오기(Profile로 갔을 때)
 
 ---
 
@@ -261,3 +261,18 @@ Profile 화면 작업중...
 - `NewProject` 스크린 추가.
 
 - data fetching 📌 `npm i --save axios`
+
+### 210907 (상윤) - useAxios 등 업데이트 및 수정
+
+- `routes`를 이용하여 각 링크들의 path를 수정하였습니다.
+
+- `App.js` > `Header` > `UserBar` logout버튼을 임시로 구현했습니다.
+
+- `Profile.js`에서 userId로 프로젝트를 찾는 api가 추가되어야 할 듯 합니다. (현재 리턴되는 프로젝트는 id만을 반환하고 있습니다.) 다른 팀원과 상의를 해봐야 할 것 같습니다.
+
+- `ProfileProjectBox` 파일명 수정 : `Projects/ProjectBox.js`와 이름이 동일했었습니다.
+
+#### useAxios
+
+이제 `sampleData.js`파일을 삭제하고 `useAxios`를 이용하여 손쉽게 data를 패칭할 수 있습니다! `useAxios`는 계속해서 api를 패칭하는 작업을 효율적으로 하기 위해 만든 "커스텀 훅"입니다. `useAxios`에 api를 변수로 넣으면 `{loading, error, data}`를 가지는 객체를 반환합니다.</br>
+<strong>사용법</strong>은 `useAxios`를 이용하여 데이터를 패칭할 때, `error`를 가장 위에 위치시킵니다. 만약 user가 임의로 존재하지 않는 파라미터값을 이용해서 url을 이동하려 할 때, error가 발생되고 `Not Found`를 보여줍니다. data를 아직 패칭하지 못했거나, 로딩중이라면 `loading..`을 보여줍니다. 모든 작업이 정상적으로 완료되면 data를 리턴하게 됩니다.

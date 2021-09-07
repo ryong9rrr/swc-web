@@ -43,9 +43,13 @@ function UserBox({ nickname, skills }) {
           <Edit>프로필수정</Edit>
         </Username>
         <Row>
-          {TextToArray(skills).map((skill, index) => (
-            <Skill key={index}>{skill}</Skill>
-          ))}
+          {skills ? (
+            TextToArray(skills).map((skill, index) => (
+              <Skill key={index}>{skill}</Skill>
+            ))
+          ) : (
+            <span>아직 등록된 스킬이 없어요.</span>
+          )}
         </Row>
         <Row>
           <span>팔로워 : ...</span>

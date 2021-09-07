@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { routes } from "../../routes";
 
 const Container = styled.ul`
   display: block;
@@ -32,13 +33,13 @@ function SkillBox({ data }) {
   return (
     <Container>
       <li>
-        <Btn to="/" exact>
+        <Btn to={routes.home} exact>
           전체
         </Btn>
       </li>
       {data?.map((skill, index) => (
         <li key={index}>
-          <Btn to={`/projects/skill/${skill.skillName}`}>{skill.skillName}</Btn>
+          <Btn to={`${routes.skill}/${skill.skillName}`}>{skill.skillName}</Btn>
         </li>
       ))}
     </Container>

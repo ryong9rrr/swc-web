@@ -1,28 +1,23 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-const Img = styled.img`
-  width: 60px;
-  height: 60px;
-  max-width: 100%;
-  border-radius: 50%;
-`;
+import { routes } from "../../routes";
+import { Avatar } from "../shared";
 
 const Username = styled.span`
   margin-bottom: 10px;
 `;
 
-const UserInfoBtn = styled.span`
-  a {
-    color: inherit;
-  }
+const Btn = styled.span`
   padding: 5px;
   cursor: pointer;
-  border: 0.5;
+  font-weight: 600;
+  border: 0.5px solid ${(props) => props.theme.borderColor};
+  border-radius: 3px;
   &:hover {
-    font-weight: 600;
-    border: 0.5px solid ${(props) => props.theme.borderColor};
-    border-radius: 3px;
+    opacity: 0.7;
+  }
+  a {
+    color: inherit;
   }
 `;
 
@@ -44,15 +39,22 @@ const Container = styled.div`
   }
 `;
 
-function UserBar() {
+const Btns = styled.div``;
+
+function UserBar({ userData, logout }) {
+  console.log(userData);
+  const { nickname, userId } = userData;
   return (
     <Container>
-      <Img src="https://cdn.pixabay.com/photo/2021/08/13/14/23/animal-6543231_960_720.jpg" />
+      <Avatar size="60px" url={userData.img} />
       <UserBox>
-        <Username>OOO님 환영해요!</Username>
-        <UserInfoBtn>
-          <Link to="/">마이페이지</Link>
-        </UserInfoBtn>
+        <Username>{nickname}님 환영해요!</Username>
+        <Btns>
+          <Btn>
+            <Link to={`${routes.user}/${userId}`}>마이페이지</Link>
+          </Btn>
+          <Btn onClick={logout}>로그아웃</Btn>
+        </Btns>
       </UserBox>
     </Container>
   );

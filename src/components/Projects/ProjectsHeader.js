@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { routes } from "../../routes";
 import { Button, Separator, SquareButton } from "../shared";
 
 const Container = styled.div`
@@ -45,7 +46,7 @@ function ProjectsHeader({ isLoggedIn }) {
         </SortBtns>
         <WriteBtn disabled={!isLoggedIn}>
           {isLoggedIn ? (
-            <Link to="/projects/new-project/">글쓰기</Link>
+            <Link to={`${routes.newProject}`}>글쓰기</Link>
           ) : (
             "글쓰기"
           )}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { routes } from "../../routes";
 import { Avatar } from "../shared";
 
 const Container = styled.div`
@@ -35,7 +36,7 @@ function SideBarModal({ url, size, founderId, userId, username }) {
 
   return (
     <Container>
-      <Link to={`/user/${userId}`}>
+      <Link to={`${routes.user}/${userId}`}>
         <AvatarImg
           onMouseOver={() => setModal(true)}
           onMouseOut={() => setModal(false)}

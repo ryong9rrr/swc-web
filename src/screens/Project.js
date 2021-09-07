@@ -6,6 +6,7 @@ import CommentBox from "../components/ProjectDetail/CommentBox";
 import ProjectBox from "../components/ProjectDetail/ProjectBox";
 import SideBar from "../components/ProjectDetail/SideBar";
 import { Content } from "../components/shared";
+import useAxios from "../hooks/useAxios";
 
 const Main = styled(Content)`
   border: none;
@@ -24,41 +25,17 @@ const RightBox = styled.div`
 function Project() {
   //params.projectId 에 맞는 프로젝트 상세데이터를 api로 불러와야함
   const { projectId } = useParams();
-  const API_sample = {
-    httpStatus: "OK",
-    result: {
-      projectId: 2,
-      projectTitle: "같이 프로젝트 해요~!",
-      projectContent: "컨텐츠3",
-      founderId: 1,
-      founderEmail: "email12346",
-      founderNickname: "용상윤",
-      requiredSkills: "react javascript spring graphql",
-      updatedAt: "2021-08-31T02:59:07.055",
-      participants: [
-        {
-          userId: 1,
-          email: "email12346",
-          nickname: "용상윤",
-          phoneNumber: "12312313212312",
-          skills: "react javascript",
-        },
-        {
-          userId: 2,
-          email: "dsfsdf",
-          nickname: "김성중",
-          phoneNumber: "12335453",
-          skills: "spring django",
-        },
-      ],
-    },
-  };
+  const { loading, data, error } = useAxios(`projects/${projectId}`);
 
-  const { httpStatus, result: data } = API_sample;
-
-  if (httpStatus !== "OK") {
-    return;
+  if (error) {
+    return <div>Not Found</div>;
   }
+
+  if (!data || loading) {
+    return <div>loading..</div>;
+  }
+
+  const { result } = data;
 
   return (
     <>
@@ -66,18 +43,18 @@ function Project() {
       <Main>
         <LeftBox>
           <ProjectBox
-            projectTitle={data?.projectTitle}
-            requiredSkills={data?.requiredSkills}
-            projectContent={data?.projectContent}
+            projectTitle={result?.projectTitle}
+            requiredSkills={result?.requiredSkills}
+            projectContent={result?.projectContent}
           />
           <CommentBox />
         </LeftBox>
         <RightBox>
           <SideBar
-            founderId={data?.founderId}
-            founderEmail={data?.founderEmail}
-            founderNickname={data?.founderNickname}
-            participants={data?.participants}
+            founderId={result?.founderId}
+            founderEmail={result?.founderEmail}
+            founderNickname={result?.founderNickname}
+            participants={result?.participants}
           />
         </RightBox>
       </Main>

@@ -9,7 +9,7 @@ const Container = styled(Box)`
   grid-template-columns: repeat(4, 1fr);
 `;
 
-function ProjectBox({ projects }) {
+function ProfileProjectBox({ projects }) {
   return (
     <Container>
       {projects.map((project, index) => (
@@ -19,4 +19,4 @@ function ProjectBox({ projects }) {
   );
 }
 
-export default ProjectBox;
+export default ProfileProjectBox;

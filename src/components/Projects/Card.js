@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { routes } from "../../routes";
 
 const Container = styled.article`
   margin: 30px auto;
@@ -11,20 +12,12 @@ const Container = styled.article`
   font-size: 3rem;
 `;
 
-function Card({
-  size,
-  projectId,
-  title,
-  founderId,
-  founderNickName,
-  requiredSkills,
-  recommendedCount,
-  updatedAt,
-}) {
+function Card({ size, projectId, userId, title, username, skills, likes }) {
   return (
     <Container key={projectId} size={size}>
+      <span>projectId : {projectId}</span>
       {title}
-      <Link to={`/projects/${projectId}`}>
+      <Link to={`${routes.projects}/${projectId}`}>
         <button>자세히보기</button>
       </Link>
     </Container>
