@@ -53,7 +53,14 @@ function UserBar({ userData, logout }) {
           <Btn>
             <Link to={`${routes.user}/${userId}`}>마이페이지</Link>
           </Btn>
-          <Btn onClick={logout}>로그아웃</Btn>
+          <Btn
+            onClick={() => {
+              localStorage.removeItem("user");
+              document.location.href = "/";
+            }}
+          >
+            로그아웃
+          </Btn>
         </Btns>
       </UserBox>
     </Container>

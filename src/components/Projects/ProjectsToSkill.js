@@ -1,13 +1,36 @@
-import { useParams, useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import useAxios from "../../hooks/useAxios";
+import Card from "./Card";
 
-// api로 "params.skillName에 맞는 프로젝트들을 받아와서 <Card>로 리턴해야함."
 function ProjectsToSkill() {
-  const params = useParams();
-  const match = useRouteMatch();
+  const { skillName } = useParams();
+  const { loading, data, error } = useAxios(`projects/skill/${skillName}`);
 
-  console.log(params, match);
+  if (error) {
+    return <div>Not Found</div>;
+  }
 
-  return <div>{params.skillName}</div>;
+  if (!data || loading) {
+    return <div>loading..</div>;
+  }
+  const { httpStatus, result: projects } = data;
+
+  return (
+    <>
+      {projects.map((project, index) => (
+        <Card
+          key={index}
+          size="300px"
+          projectId={project.projectId}
+          userId={project.founderId}
+          title={project.title}
+          username={project.founderNickName}
+          skills={project.requiredSkills}
+          likes={project.recommendedCount}
+        />
+      ))}
+    </>
+  );
 }
 
 export default ProjectsToSkill;

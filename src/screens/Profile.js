@@ -11,7 +11,7 @@ const Main = styled(Content)`
   border: none;
 `;
 
-function Profile() {
+function Profile({ isLoggedIn }) {
   const { userId } = useParams();
   const { loading, data, error } = useAxios(`user/${userId}`);
 
@@ -29,7 +29,12 @@ function Profile() {
     <>
       <HelmetTitle title={result?.nickname} />
       <Main>
-        <UserBox nickname={result?.nickname} skills={result?.skills} />
+        <UserBox
+          userId={result?.userId}
+          nickname={result?.nickname}
+          skills={result?.skills}
+          isLoggedIn={isLoggedIn}
+        />
         <ProfileProjectBox projects={result?.joinedProjects} />
       </Main>
       <Footer />

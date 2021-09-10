@@ -30,9 +30,9 @@ function Projects() {
     <Container>
       <Route path={routes.home} exact>
         {httpStatus === "OK" &&
-          projects.map((project) => (
+          projects.map((project, index) => (
             <Card
-              key={project.projectId}
+              key={index}
               size="300px"
               projectId={project.projectId}
               userId={project.founderId}

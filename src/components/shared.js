@@ -60,9 +60,9 @@ export const RoundButton = styled.button`
   font-weight: 600;
   width: 120px;
   height: 60px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
   &:hover {
-    background-color: gray;
+    background-color: ${(props) => (props.disabled ? "#c4c4c4" : "gray")};
   }
 `;
 
@@ -72,9 +72,11 @@ export const Input = styled.input`
   border-radius: 10px;
   padding: 0 20px;
   background-color: #fafafa;
-  border: 0.5px solid ${(props) => props.theme.borderColor};
-  margin-bottom: 20px;
+  border: 0.5px solid
+    ${(props) => (props.hasError ? "tomato" : props.theme.borderColor)};
+  margin-bottom: ${(props) => (props.hasError ? "10px" : "20px")};
   box-sizing: border-box;
+  font-size: 18px;
   &::placeholder {
     font-size: 18px;
   }

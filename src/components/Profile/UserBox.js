@@ -29,7 +29,10 @@ const UserInfo = styled.div``;
 
 const Edit = styled.button``;
 
-function UserBox({ nickname, skills }) {
+function UserBox({ userId, nickname, skills, isLoggedIn }) {
+  //임시코드
+  const { userId: loggedUserId } =
+    isLoggedIn && JSON.parse(localStorage.getItem("user"));
   return (
     <Container>
       <UserImg>
@@ -40,7 +43,7 @@ function UserBox({ nickname, skills }) {
       <UserInfo>
         <Username>
           <h1>{nickname}</h1>
-          <Edit>프로필수정</Edit>
+          {isLoggedIn && userId === loggedUserId && <Edit>프로필수정</Edit>}
         </Username>
         <Row>
           {skills ? (

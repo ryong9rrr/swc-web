@@ -49,7 +49,7 @@ function useAxios(api) {
   };
 
   useEffect(() => {
-    console.log("useEffect");
+    //console.log("useEffect");
     fetchData();
   }, []);
 
