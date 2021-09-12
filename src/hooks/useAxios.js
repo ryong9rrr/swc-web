@@ -1,8 +1,16 @@
 import axios from "axios";
 import { useEffect, useReducer } from "react";
 
+const initialState = {
+  loading: false,
+  data: null,
+  error: null,
+};
+
 function reducer(state, action) {
   switch (action.type) {
+    case "init":
+      return initialState;
     case "LOADING":
       return {
         loading: true,
@@ -33,7 +41,7 @@ function useAxios(api) {
     error: null,
   });
 
-  const fetchData = async () => {
+  const fetchData = async (api) => {
     dispatch({
       type: "LOADING",
     });
@@ -49,9 +57,8 @@ function useAxios(api) {
   };
 
   useEffect(() => {
-    //console.log("useEffect");
-    fetchData();
-  }, []);
+    fetchData(api);
+  }, [api]);
 
   // loading, data, error
   return { ...state };
